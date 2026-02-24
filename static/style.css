@@ -1,0 +1,359 @@
+html, body{
+  margin:0; height:100%;
+  background:#0e0e11;
+  overflow:hidden;
+  font-family: system-ui, sans-serif;
+}
+
+:root{
+  --walnut-900:#1b120a;
+  --walnut-800:#24170e;
+  --walnut-700:#2f1e12;
+
+  --cream-100:#f5efe6;
+  --cream-200:#efe3d2;
+
+  --amber-500:#cf8217;
+  --amber-400:#daa247;
+
+  --ink:#2b1b10;
+  --muted:rgba(43,27,16,.55);
+  --line:rgba(255,255,255,.22);
+}
+
+
+.bg{
+  position:fixed; inset:0; z-index:0;
+  background:
+    radial-gradient(circle at 50% 10%,
+      rgba(255,255,255,.85),
+      rgba(255,255,255,.25) 35%,
+      transparent 65%),
+
+    radial-gradient(circle at 20% 35%,
+      rgba(255,215,120,.55),
+      transparent 55%),
+
+    radial-gradient(circle at 80% 40%,
+      rgba(180,200,255,.55),
+      transparent 60%),
+
+    radial-gradient(circle at 50% 80%,
+      rgba(220,180,255,.45),
+      transparent 65%),
+
+    linear-gradient(180deg,
+      #fdfcff 0%,
+      #eef3ff 40%,
+      #e6f0ff 100%);
+}
+
+
+.panel{
+  background: rgba(255,255,255,.18); /* ← 少し明るく */
+  border: 1px solid rgba(255,255,255,.35);
+}
+
+.panel::before{
+  background:
+    radial-gradient(1200px 300px at 50% 0%,
+      rgba(255,255,255,.45),
+      rgba(255,255,255,0) 60%),
+    radial-gradient(900px 260px at 80% 20%,
+      rgba(255,230,180,.35),
+      rgba(255,255,255,0) 65%);
+}
+
+
+
+
+
+.parallax{
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.layer{
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  will-change: transform;
+  filter: saturate(160%) contrast(1.15);
+}
+.wrap{
+  position: relative;
+  z-index: 2;
+}
+
+
+
+
+
+.l1{ background-image:url("/static/marks/omotenashi_mark_blue.png"); background-size:220px 220px; opacity:.10; }
+.l2{ background-image:url("/static/marks/omotenashi_mark_gold.png"); background-size:180px 180px; opacity:.14; }
+.l3{ background-image:url("/static/marks/omotenashi_mark_purple.png"); background-size:260px 260px; opacity:.09; }
+
+/* 左上寄り */
+.l1{
+  top: 15%;
+  left: 8%;
+}
+
+/* 右上寄り */
+.l2{
+  top: 20%;
+  right: 8%;
+}
+
+/* 下中央寄り（アクセント） */
+.l3{
+  bottom: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.l1{ /* blue */
+  background-image:url("/static/marks/omotenashi_mark_blue.png");
+  opacity:.45;
+  filter: saturate(170%) contrast(1.2);
+}
+
+.l2{ /* gold */
+  background-image:url("/static/marks/omotenashi_mark_gold.png");
+  opacity:.30;
+  filter: saturate(140%) contrast(1.1);
+}
+
+.l3{ /* purple */
+  background-image:url("/static/marks/omotenashi_mark_purple.png");
+  opacity:.28;
+  filter: saturate(160%) contrast(1.15);
+}
+
+
+
+.wrap{
+  position:relative; z-index:2;
+  height:100%;
+  display:grid;
+  place-items:center;
+  padding:24px;
+}
+
+.panel{
+  width:min(920px, 94vw);
+  height:min(620px, 86vh);
+  position:relative;
+  border-radius:22px;
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.18);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  box-shadow: 0 30px 80px rgba(0,0,0,.45);
+  overflow:hidden;
+}
+
+.panel::before{
+  content:"";
+  position:absolute; inset:-1px;
+  border-radius:22px;
+  pointer-events:none;
+  background:
+    radial-gradient(1200px 240px at 20% 0%,
+      rgba(255,255,255,.22),
+      rgba(255,255,255,0) 60%),
+    radial-gradient(900px 200px at 80% 20%,
+      rgba(255,255,255,.12),
+      rgba(255,255,255,0) 65%);
+  mix-blend-mode: screen;
+  opacity: .9;
+}
+
+.head{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:18px 18px 10px 18px;
+  color:#fff;
+}
+.title{ font-weight:800; letter-spacing:.2px; }
+.badge{
+  font-size:12px;
+  padding:6px 10px;
+  border-radius:999px;
+  background: rgba(0,0,0,.25);
+  border:1px solid rgba(255,255,255,.16);
+}
+.panel{
+  display: flex;
+  flex-direction: column;
+}
+
+
+.body{
+  flex: 1;               /* ←残り全部 */
+  min-height: 0;         /* ←スクロールできるように必須 */
+  padding: 12px 18px;
+  color:#fff;
+}
+
+.log{
+  height:100%;
+  min-height: 0;
+  overflow:auto;
+  padding:16px;
+  border-radius:16px;
+  background: rgba(0,0,0,.22);
+  border:1px solid rgba(255,255,255,.12);
+}
+
+.foot{
+  display:flex; gap:10px;
+  padding: 26px 16px 26px 16px;
+}
+.input{
+  flex:1;
+  padding:16px 20px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.16);
+  background: rgba(0,0,0,.25);
+  color:#fff;
+  outline:none;
+}
+.send{
+  padding: 16px 18px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.14);
+  color:#fff;
+  font-weight:700;
+  cursor:pointer;
+}
+.send:hover{ background: rgba(255,255,255,.20); }
+
+
+/* ===== チャット文章の整形（logの中だけに適用） ===== */
+.log{
+  height:100%;
+  overflow:auto;
+  padding:16px;
+  border-radius:16px;
+  background: rgba(0,0,0,.22);
+  border:1px solid rgba(255,255,255,.12);
+
+  /* 基本文字 */
+  line-height: 1.65;
+  font-size: 15px;
+  color:#fff;
+}
+
+/* ストリーム中のカーソル（JSで log.classList.add("typing") する場合） */
+.log.typing::after{
+  content:"";
+  display:inline-block;
+  width:8px;
+  height:1.2em;
+  margin-left:4px;
+  background: rgba(255,255,255,.7);
+  animation: blink .9s infinite;
+  vertical-align: -3px;
+}
+@keyframes blink{ 50%{ opacity:0; } }
+
+/* “考え中…”を装飾したい時用（JSで <span class="thinking"> を入れる場合） */
+.log .thinking{
+  opacity:.85;
+  font-weight:700;
+}
+
+/* 見出し */
+.log .heading{
+  margin: 8px 0 6px;
+  font-weight: 900;
+  letter-spacing: .2px;
+  font-size: 15px;
+}
+
+/* 箇条書き */
+.log .item{
+  margin: 4px 0;
+  padding-left: 10px;
+  position: relative;
+}
+.log .item::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:10px;
+  width:4px;
+  height:4px;
+  border-radius:999px;
+  background: rgba(255,255,255,.75);
+}
+
+/* 通常行 */
+.log .line{
+  margin: 4px 0;
+  line-height: 1.7;
+  opacity: .95;
+}
+
+/* URLブロック */
+.log .url{
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,.12);
+}
+.log .url a{
+  color: rgba(255,255,255,.92);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  word-break: break-all;
+}
+
+/* =========================
+   会話の積み上げ（追記）
+   ========================= */
+
+/* 会話の積み上げ */
+.log{ overflow:auto; }
+
+/* 1メッセージ行 */
+.log .m{
+  display:flex;
+  margin: 10px 0;
+}
+
+/* 右（ユーザー） */
+.log .m.user{ justify-content:flex-end; }
+
+/* 左（AI） */
+.log .m.assistant{ justify-content:flex-start; }
+
+/* 吹き出し */
+.log .bubble{
+  max-width: 82%;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.10);
+}
+
+/* ユーザー側は少し濃く */
+.log .m.user .bubble{
+  background: rgba(0,0,0,.28);
+}
+
+/* 考え中… */
+.log .thinking{
+  opacity:.85;
+  font-weight:700;
+}
+
+
+/* 空行（JSで <div class="sp"></div> を挟む場合） */
+.log .sp{
+  height: 8px;
+}
